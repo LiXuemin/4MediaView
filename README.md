@@ -9,7 +9,7 @@
 5. WEB UI
 
 ## 底层组件
-1. OpenOffice,Windows Office + jacob
+1. OpenOffice,LibreOffice,Windows Office + jacob
 2. ImageMagick
 3. FFMpeg
 4. S3 API, FastDFS, Minio
