@@ -19,8 +19,8 @@
 V1-初步规划,架构图如下:
 ![microservice architecture](https://github.com/LiXuemin/media-service/blob/master/media-service.png)
 
-- [ ] Storage Service
 - [ ] Text Converter
 - [ ] Image Converter
 - [ ] Video/Audio Converter
+- [ ] Storage Service
 - [ ] UI

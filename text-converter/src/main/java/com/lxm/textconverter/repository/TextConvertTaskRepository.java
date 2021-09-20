@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.*;
 import org.springframework.stereotype.Repository;
 
 /**
- * Spring Data SQL repository for the TextConvertTask entity.
+ * Spring Data SQL repository for the TaskDTO entity.
  */
 @SuppressWarnings("unused")
 @Repository
