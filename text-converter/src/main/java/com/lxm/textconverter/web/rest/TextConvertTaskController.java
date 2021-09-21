@@ -5,8 +5,12 @@ import com.lxm.textconverter.domain.TextConvertTask;
 import com.lxm.textconverter.repository.TextConvertTaskRepository;
 import com.lxm.textconverter.service.TextConvertTaskService;
 import com.lxm.textconverter.service.dto.TaskDTO;
+import java.io.UnsupportedEncodingException;
 import java.util.Optional;
 import javax.validation.Valid;
+import org.apache.rocketmq.client.exception.MQBrokerException;
+import org.apache.rocketmq.client.exception.MQClientException;
+import org.apache.rocketmq.remoting.exception.RemotingException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,7 +40,8 @@ public class TextConvertTaskController {
      * add a text convert task
      */
     @PostMapping("/addTask")
-    public ResponseEntity<TextConvertTask> addTask(@Valid @RequestBody TaskDTO taskDTO) {
+    public ResponseEntity<TextConvertTask> addTask(@Valid @RequestBody TaskDTO taskDTO)
+        throws MQBrokerException, RemotingException, UnsupportedEncodingException, InterruptedException, MQClientException {
         return ResponseEntity.ok(taskService.addTask(taskDTO));
     }
 
