@@ -2,6 +2,7 @@ package com.lxm.textconverter.service.mapper;
 
 import com.lxm.textconverter.domain.TextConvertTask;
 import com.lxm.textconverter.service.dto.TaskDTO;
+import java.time.Instant;
 import org.springframework.stereotype.Service;
 
 
@@ -14,8 +15,9 @@ public class TaskMapper {
         }
         return TextConvertTask.builder()
             .sourceURL(taskDTO.getSourceURL())
-            .appCode(taskDTO.getAppCode())
             .callbackURL(taskDTO.getCallbackURL())
+            .createdBy(taskDTO.getCreatedBy())
+            .createdDate(Instant.now())
             .build();
     }
 }

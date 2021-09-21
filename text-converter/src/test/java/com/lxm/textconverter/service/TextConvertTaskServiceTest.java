@@ -52,10 +52,7 @@ class TextConvertTaskServiceTest {
         for (int i = 0; i < messageCount; i++) {
             try {
                 final int index = i;
-                Message msg = new Message("Jodie_topic_1023",
-                    "TagA",
-                    "OrderID188",
-                    "Hello world".getBytes(RemotingHelper.DEFAULT_CHARSET));
+                Message msg = new Message("Jodie_topic_1023", "TagA", "OrderID188", "Hello world".getBytes(RemotingHelper.DEFAULT_CHARSET));
                 producer.send(msg, new SendCallback() {
                     @Override
                     public void onSuccess(SendResult sendResult) {
