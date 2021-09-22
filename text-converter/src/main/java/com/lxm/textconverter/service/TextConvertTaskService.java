@@ -46,6 +46,11 @@ public class TextConvertTaskService {
         TextConvertTask task = taskMapper.taskDTOToTask(taskDTO);
         task.setConvertState(String.valueOf(Constants.CONVERT_STATE.NEW));
         taskRepository.save(task);
+        produceConvertMessage(task);
+        return task;
+    }
+
+    private void produceConvertMessage(TextConvertTask task) {
         try {
             Message msg = buildMsgOfTask(task);
             defaultMQProducer.send(msg, new SendCallback() {
@@ -62,7 +67,6 @@ public class TextConvertTaskService {
         } catch (InterruptedException | MQClientException | RemotingException | JsonProcessingException e) {
             LOGGER.error("AddTask error when send message to rocketmq : {}", e.getMessage(), e);
         }
-        return task;
     }
 
     private Message buildMsgOfTask(TextConvertTask task) throws JsonProcessingException {
