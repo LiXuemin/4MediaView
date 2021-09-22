@@ -22,6 +22,8 @@ public class ConsumerConfigure {
     public DefaultMQPushConsumer defaultMQPushConsumer() {
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer(CONSUMER_GROUP_TEXT_CONVERT);
         consumer.setNamesrvAddr(NAMESERV_ADDR);
+        //TODO thread number depend on the cpu cores or openoffice process
+        consumer.setConsumeThreadMax(3);
         try {
             consumer.subscribe(TOPIC_TEXT_CONVERT, "*");
             consumer.registerMessageListener(new MessageListenerConcurrently() {
