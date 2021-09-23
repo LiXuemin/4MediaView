@@ -14,13 +14,16 @@
 3. FFMpeg
 4. S3 API, FastDFS, Minio
 5. Spring Cloud
+6. RocketMQ
+   * [RocketMQ官网](https://rocketmq.apache.org)
+   * [RockemtMQ-Console2](https://github.com/apache/rocketmq-dashboard)
 
 ## 架构图示
 V1-初步规划,架构图如下:
 ![microservice architecture](https://github.com/LiXuemin/media-service/blob/master/media-service.png)
 
-- [ ] Storage Service
 - [ ] Text Converter
 - [ ] Image Converter
 - [ ] Video/Audio Converter
+- [ ] Storage Service
 - [ ] UI
