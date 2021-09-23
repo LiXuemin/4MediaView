@@ -15,6 +15,7 @@
         <java.version>1.8</java.version>
         <lombok.version>1.18.20</lombok.version>
         <rocketmq.version>4.9.0</rocketmq.version>
+        <jodconverter.version>4.4.2</jodconverter.version>
     </properties>
     <dependencies>
 
@@ -59,11 +60,26 @@
             <version>${rocketmq.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.jodconverter</groupId>
+            <artifactId>jodconverter-spring-boot-starter</artifactId>
+            <version>${jodconverter.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jodconverter</groupId>
+            <artifactId>jodconverter-local</artifactId>
+            <version>${jodconverter.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
 

@@ -7,8 +7,10 @@ import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;
 import org.apache.rocketmq.client.consumer.listener.MessageListenerConcurrently;
 import org.apache.rocketmq.client.exception.MQClientException;
 import org.apache.rocketmq.common.message.MessageExt;
+import org.jodconverter.core.DocumentConverter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import static com.lxm.textconverter.config.Constants.*;
@@ -18,12 +20,14 @@ import static com.lxm.textconverter.config.Constants.*;
 public class ConsumerConfigure {
     private static final Logger LOGGER = LoggerFactory.getLogger(ConsumerConfigure.class);
 
+    @Autowired
+    private DocumentConverter converter;
+
     @Bean
     public DefaultMQPushConsumer defaultMQPushConsumer() {
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer(CONSUMER_GROUP_TEXT_CONVERT);
         consumer.setNamesrvAddr(NAMESERV_ADDR);
-        //TODO thread number depend on the cpu cores or openoffice process
-        consumer.setConsumeThreadMax(3);
+        //consumer.setConsumeThreadMax(3);
         try {
             consumer.subscribe(TOPIC_TEXT_CONVERT, "*");
             consumer.registerMessageListener(new MessageListenerConcurrently() {

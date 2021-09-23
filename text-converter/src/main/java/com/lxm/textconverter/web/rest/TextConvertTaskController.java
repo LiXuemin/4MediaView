@@ -42,6 +42,9 @@ public class TextConvertTaskController {
 
     /**
      * get a task info
+     * @param taskId
+     * @return
+     * {@link ResponseEntity<TaskDTO>}
      */
     @GetMapping("/getTask")
     public ResponseEntity<TextConvertTask> getTask(Long taskId) {
